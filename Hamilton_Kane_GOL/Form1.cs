@@ -148,18 +148,24 @@ namespace Hamilton_Kane_GOL
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             timer.Enabled = true;
+            // Tell Windows you need to repaint
+            graphicsPanel1.Invalidate();
         }
 
         // Pause timer
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             timer.Enabled = false;
+            // Tell Windows you need to repaint
+            graphicsPanel1.Invalidate();
         }
 
         // Next timer
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             NextGeneration();
+            // Tell Windows you need to repaint
+            graphicsPanel1.Invalidate();
         }
     }
 }
