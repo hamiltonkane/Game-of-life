@@ -28,7 +28,8 @@ namespace Hamilton_Kane_GOL
         public Form1()
         {
             InitializeComponent();
-
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
             // Setup the timer
             timer.Interval = 100; // milliseconds
             timer.Tick += Timer_Tick;
@@ -166,6 +167,62 @@ namespace Hamilton_Kane_GOL
             NextGeneration();
             // Tell Windows you need to repaint
             graphicsPanel1.Invalidate();
+        }
+
+        //Color - Back Color
+        private void backColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cdlg = new ColorDialog();
+            cdlg.Color = graphicsPanel1.BackColor;
+            if (DialogResult.OK == cdlg.ShowDialog())
+            {
+                graphicsPanel1.BackColor = cdlg.Color;
+                // Tell Windows you need to repaint
+                graphicsPanel1.Invalidate();
+            }
+        }
+
+        //Color - Cell Color
+        private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cdlg = new ColorDialog();
+            cdlg.Color = cellColor;
+            if (DialogResult.OK == cdlg.ShowDialog())
+            {
+                cellColor = cdlg.Color;
+                // Tell Windows you need to repaint
+                graphicsPanel1.Invalidate();
+            }
+        }
+
+        //Color - Grid Color
+        private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cdlg = new ColorDialog();
+            cdlg.Color = gridColor;
+            if (DialogResult.OK == cdlg.ShowDialog())
+            {
+                gridColor = cdlg.Color;
+                // Tell Windows you need to repaint
+                graphicsPanel1.Invalidate();
+            }
+        }
+
+        //Color - Grid x10 Color
+        private void gridX10ColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Randomize - From Seed
+        private void fromSeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RandomizeBox rb = new RandomizeBox();
+
+            if (DialogResult.OK == rb.ShowDialog())
+            {
+
+            }
         }
     }
 }
